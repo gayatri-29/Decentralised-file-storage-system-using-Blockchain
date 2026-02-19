@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Decentralised File Storage System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A decentralized image upload platform built using Solidity, React, and IPFS.
+This project allows users to securely upload images to IPFS and control access permissions through Ethereum smart contracts.
 
-## Available Scripts
+# Project Overview
 
-In the project directory, you can run:
+This application replicates a simplified decentralized version of Google Drive for images. Instead of storing files on centralized servers, images are stored on IPFS and access control is managed using a Solidity smart contract deployed on the Ethereum blockchain.
 
-### `npm start`
+Users can:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1.Upload images to IPFS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2.Store the IPFS hash on the blockchain
 
-### `npm test`
+3.Grant access to specific Ethereum addresses
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4.Revoke access when needed
 
-### `npm run build`
+5.View images shared with them
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Solidity – Smart contract for ownership and access control
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Hardhat – Ethereum development environment
 
-### `npm run eject`
+3. React.js – Frontend user interface
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. IPFS (Pinata) – Decentralized image storage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. MetaMask – Wallet integration for blockchain interaction
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Features
+1. Decentralized Storage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   Images are uploaded to IPFS via Pinata, ensuring decentralized and immutable storage.
 
-## Learn More
+2. Smart Contract Access Control
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   Ownership and permission management are handled via Solidity smart contracts deployed on Ethereum.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Grant / Revoke Access
 
-### Code Splitting
+   Users can grant or revoke image access to specific Ethereum addresses.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Secure & Transparent
 
-### Analyzing the Bundle Size
+   All access permissions are recorded on the blockchain.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Installation & Setup
+1. Install Hardhat Dependencies
+   npm install 
 
-### Making a Progressive Web App
+2. Compile Smart Contract
+   npx hardhat compile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Deploy Smart Contract
+   npx hardhat run scripts/deploy.js --network <network-name>
 
-### Advanced Configuration
+4. Setup React Frontend
+   cd client
+   npm install
+   npm start 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Configuration
+Pinata API Setup
 
-### Deployment
+Create an account at https://www.pinata.cloud
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Generate API Key and Secret
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Add your API keys inside:
+client/src/components/FileUpload.js
